@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookshop</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
+      color: black;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    [id]::before {
+      content: "";
+      display: block;
+      height: 100px;
+      margin-top: -100px;
+      visibility: hidden;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    header img {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    nav a {
+      padding: 5px 12px;
+      min-width: 80px;
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: goldenrod;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('images/banner.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      margin-top: 100px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero-content h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+    }
+
+    /* General Section */
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: goldenrod;
+    }
+
+    /* Cards */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 250px;
+      padding: 15px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    /* Perfume Section */
+    .perfume-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .perfume-section img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+    .perfume-content {
+      flex: 1;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 60px 20px 150px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 500px;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Overlay for mobile menu */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 998;
+      transition: opacity 0.3s ease;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    /* Mobile Nav */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 250px;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px 20px;
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+
+      nav.show {
+        right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="images/logo.jpg" alt="Logo">
+      <h1>Mhlongo Momentum</h1>
+    </div>
+    <div class="menu-toggle">MENU</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="shop.html">Bookshop</a>
+      <a href="perfumes.html">Perfume Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="background-image: url('images/bookshop-banner.jpg');">
+    <div class="hero-content">
+      <h1>Explore Books by Ndumiso</h1>
+      <p>Empowering leaders, nurses, and believers through impactful writing.</p>
+      <a href="#ebooks" class="button">Browse Books</a>
+    </div>
+  </section>
+
+  <!-- eBooks Section -->
+  <section class="section" id="ebooks">
+    <h2>📖 eBooks</h2>
+    <p>Digital versions for on-the-go reading. Instantly delivered via email or WhatsApp after payment.</p>
+    <div class="card-container">
+      <div class="card">
+        <img src="images/book3.jpg" alt="eBook 1">
+        <h3>From One Manager to Another</h3>
+        <p>A practical guide for nursing managers and healthcare leaders.</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20the%20ebook%20'From%20One%20Manager%20to%20Another'." class="button">Order via WhatsApp</a>
+      </div>
+      <div class="card">
+        <img src="images/book2.jpg" alt="eBook 2">
+        <h3>Effective Duty Delegating</h3>
+        <p>Mastering the art of task delegation in nursing operations.</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20the%20ebook%20'Effective%20Duty%20Delegating'." class="button">Order via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physical Books Section -->
+  <section class="section" id="physical">
+    <h2>📦 Physical Books</h2>
+    <p>High-quality printed books, shipped anywhere in South Africa via reliable courier services.</p>
+    <div class="card-container">
+      <div class="card">
+        <img src="images/book3.jpg" alt="Book">
+        <h3>From One Manager to Another</h3>
+        <p>Includes real-life examples and tools for better leadership in healthcare.</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20the%20physical%20book%20'From%20One%20Manager%20to%20Another'." class="button">Order via WhatsApp</a>
+      </div>
+      <div class="card">
+        <img src="images/book2.jpg" alt="Book">
+        <h3>Effective Duty Delegating</h3>
+        <p>Perfect for operational nursing managers and students in training.</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20the%20physical%20book%20'Effective%20Duty%20Delegating'." class="button">Order via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon -->
+  <section class="section" style="background-color: #f9f9f9;">
+    <h2>⏳ Coming Soon</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="images/coming-soon.jpg" alt="Coming Soon">
+        <h3>Leading with Faith</h3>
+        <p>A spiritual leadership manual for those called to influence through the Gospel and purpose.</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20please%20notify%20me%20when%20the%20book%20'Leading%20with%20Faith'%20is%20available." class="button">Notify Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Instructions -->
+  <section class="section">
+    <h2>💳 Payment Details</h2>
+    <p>Use the following banking details when placing your order. Please send proof of payment via WhatsApp.</p>
+    <div style="text-align: left; max-width: 500px; margin: 20px auto;">
+      <p><strong>Account Holder:</strong> Ndumiso Mhlongo</p>
+      <p><strong>Bank Name:</strong> Kingdom Bank</p>
+      <p><strong>Account Number:</strong> 1234567890</p>
+      <p><strong>Branch Code:</strong> 56789</p>
+      <p><strong>Reference:</strong> Your Name + Book Title</p>
+    </div>
+    <a href="https://wa.me/27727597352" class="button">Send Proof of Payment</a>
+  </section>
+
+  <!-- Ordering & Delivery Info -->
+  <section class="section" style="background-color: #f4f4f4;">
+    <h2>🚚 How It Works</h2>
+    <ol style="max-width: 800px; margin: auto; text-align: left;">
+      <li><strong>Step 1:</strong> Choose your book(s) and click the "Order via WhatsApp" button.</li>
+      <li><strong>Step 2:</strong> Make payment using the banking details above.</li>
+      <li><strong>Step 3:</strong> Send proof of payment and your delivery address via WhatsApp.</li>
+      <li><strong>Step 4:</strong> Receive a confirmation message with tracking (for physical books).</li>
+    </ol>
+    <p style="margin-top: 20px;">📬 <strong>Delivery Time:</strong> 2-5 working days anywhere in South Africa via courier. eBooks are delivered instantly once payment is confirmed.</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <h2>📲 Still have questions?</h2>
+    <p>Feel free to reach out to Ndumiso directly via WhatsApp.</p>
+    <form action="https://wa.me/27727597352" method="get" target="_blank">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="subject" placeholder="Subject (Book Inquiry, etc)" required />
+      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit" class="button">Start WhatsApp Chat</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; <span id="year"></span> Website created by Caleb Zondo
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      const nav = document.querySelector("nav");
+      const overlay = document.querySelector(".overlay");
+      nav.classList.toggle("show");
+      overlay.classList.toggle("show");
+    }
+
+    document.querySelector(".menu-toggle").addEventListener("click", toggleMenu);
+    document.querySelector(".overlay").addEventListener("click", toggleMenu);
+  </script>
+</body>
+</html>
