@@ -89,23 +89,29 @@
     /* Hero Section */
     .hero {
       height: 100vh;
-      background: url('images/banner.jpg') no-repeat center center/cover;
+      position: relative;
+      margin-top: 100px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
-      position: relative;
-      margin-top: 100px;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
@@ -149,28 +155,6 @@
 
     .button:hover {
       background: goldenrod;
-    }
-
-    /* Cards */
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      width: 250px;
-      padding: 15px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 5px;
     }
 
     /* Perfume Section */
@@ -280,16 +264,20 @@
       <a href="index.html">Home</a>
       <a href="about.html">About Me</a>
       <a href="shop.html">Bookshop</a>
-      <a href="perfumes.html">Perfume Shop</a>
+      <a href="perfumes.html">Cosmetic Shop</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="overlay"></div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" style="background-image: url('images/perfumeb.avif');">
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="images/perfume banner.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-content">
-      <h1>The Perfume Co. Africa</h1>
+      <h1>The Cosmetic Shop | Perfume Co. Africa</h1>
       <p>Affordable. Elegant. Long-Lasting Scents for Every Occasion.</p>
       <a href="#body-sprays" class="button">Browse Products</a>
     </div>
@@ -311,97 +299,21 @@
     <a href="https://wa.me/27727597352?text=Hi%2C%20I%20am%20interested%20in%20becoming%20a%20Perfume%20Co%20reseller." class="button">Become a Reseller</a>
   </section>
 
-  <!-- Body Sprays -->
-  <section class="section" id="body-sprays">
-    <h2>✨ Body Sprays</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="images/spray1.jpg" alt="Spray 1">
-        <h3>Black Ice</h3>
-        <p>Bold, fresh, and powerful body spray for men.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20the%20Black%20Ice%20body%20spray." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/spray2.jpg" alt="Spray 2">
-        <h3>Summer Bloom</h3>
-        <p>A sweet and soft floral scent perfect for ladies.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20the%20Summer%20Bloom%20body%20spray." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/spray3.jpg" alt="Spray 3">
-        <h3>Vanilla Splash</h3>
-        <p>Warm vanilla with hints of musk and freshness.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20Vanilla%20Splash." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/spray4.jpg" alt="Spray 4">
-        <h3>Oud Royale</h3>
-        <p>Exotic oud blend with timeless elegance.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20Oud%20Royale." class="button">Order via WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Scents and Colognes -->
-  <section class="section" id="scents">
-    <h2>🚗 Car, Home Scents & Colognes</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="images/car1.jpg" alt="Car Scent">
-        <h3>New Car Fresh</h3>
-        <p>That brand-new car smell in a bottle. Fresh & clean.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20New%20Car%20Fresh." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/home1.jpg" alt="Home Scent">
-        <h3>Lavender Breeze</h3>
-        <p>Relaxing home diffuser with soft lavender notes.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20Lavender%20Breeze%20home%20scent." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/cologne1.jpg" alt="Cologne">
-        <h3>Royal Man</h3>
-        <p>Strong, masculine, long-lasting cologne.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20Royal%20Man%20cologne." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/cologne2.jpg" alt="Cologne">
-        <h3>Golden Grace</h3>
-        <p>Elegant feminine perfume with golden undertones.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20want%20to%20order%20Golden%20Grace%20perfume." class="button">Order via WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- More Fragrance Cards -->
+  <!-- Perfume Size Guide -->
   <section class="section">
-    <h2>🧴 More Signature Scents</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="images/scent1.jpg" alt="Scent">
-        <h3>Ocean Drift</h3>
-        <p>Cool, aquatic scent for all-day freshness.</p>
-        <a href="https://wa.me/27727597352?text=I'd%20like%20to%20order%20Ocean%20Drift." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/scent2.jpg" alt="Scent">
-        <h3>Rosewood Blush</h3>
-        <p>Soft woody rose aroma for elegance and calm.</p>
-        <a href="https://wa.me/27727597352?text=I'd%20like%20to%20order%20Rosewood%20Blush." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/scent3.jpg" alt="Scent">
-        <h3>Citrus Pop</h3>
-        <p>Zesty and fun. A burst of citrus energy.</p>
-        <a href="https://wa.me/27727597352?text=I'd%20like%20to%20order%20Citrus%20Pop." class="button">Order via WhatsApp</a>
-      </div>
-      <div class="card">
-        <img src="images/scent4.jpg" alt="Scent">
-        <h3>Amber Noir</h3>
-        <p>Mysterious and warm with deep spicy tones.</p>
-        <a href="https://wa.me/27727597352?text=I'd%20like%20to%20order%20Amber%20Noir." class="button">Order via WhatsApp</a>
-      </div>
-    </div>
+    <h2>Perfume Size Guide</h2>
+    <p>Here’s a quick guide to help you choose the right bottle size.</p>
+    <img src="images/size guide.jpg" alt="Perfume Size Guide" style="max-width:600px; width:100%; border-radius:10px; margin-top:20px;">
+  </section>
+
+  <!-- Catalogue Download -->
+  <section class="section" style="background-color:#f4f4f4;">
+    <h2>📖 Download Our Catalogue</h2>
+    <p>
+      Browse our complete list of fragrances, gift sets, and packages.  
+      Download the catalogue below and send a WhatsApp message with the product/package you want.
+    </p>
+    <a href="images/catalogue.pdf" class="button" download>Download Catalogue (PDF)</a>
   </section>
 
   <!-- Payment Details -->
