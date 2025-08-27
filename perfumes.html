@@ -157,25 +157,48 @@
       background: goldenrod;
     }
 
-    /* Perfume Section */
-    .perfume-section {
+    /* Product Cards */
+    .product-grid {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      justify-content: center;
       gap: 20px;
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
+      margin-top: 40px;
     }
 
-    .perfume-section img {
-      width: 100%;
-      max-width: 400px;
+    .card {
+      border: 1px solid #ddd;
       border-radius: 10px;
+      overflow: hidden;
+      max-width: 300px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
     }
 
-    .perfume-content {
-      flex: 1;
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+
+    .card p {
+      padding: 0 15px;
+      font-size: 14px;
+    }
+
+    .card .price {
+      font-weight: bold;
+      margin: 10px 0;
+      color: goldenrod;
     }
 
     /* Contact Section */
@@ -279,7 +302,7 @@
     <div class="hero-content">
       <h1>The Cosmetic Shop | Perfume Co. Africa</h1>
       <p>Affordable. Elegant. Long-Lasting Scents for Every Occasion.</p>
-      <a href="#body-sprays" class="button">Browse Products</a>
+      <a href="#products" class="button">Browse Products</a>
     </div>
   </section>
 
@@ -296,7 +319,39 @@
       the journey of becoming a profitable fragrance distributor. Whether you're starting a side hustle or scaling a business,
       he’ll support you every step of the way.
     </p>
+    <img src="images/reseller pack.jpg" alt="Reseller Benefits" style="max-width:600px; width:100%; border-radius:10px; margin:20px auto; display:block;">
     <a href="https://wa.me/27727597352?text=Hi%2C%20I%20am%20interested%20in%20becoming%20a%20Perfume%20Co%20reseller." class="button">Become a Reseller</a>
+  </section>
+
+  <!-- Product Cards -->
+  <section class="section" id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <!-- Perfumes -->
+      <div class="card">
+        <img src="images/perfume_package.jpg" alt="Perfumes">
+        <h3>Perfumes (50ml)</h3>
+        <p>Elegant 50ml perfumes from Perfume Co. Africa.</p>
+        <p class="price">R 250.00 ZAR</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20Perfumes%20(50ml)" class="button">Order via WhatsApp</a>
+      </div>
+      <!-- House Diffusers -->
+      <div class="card">
+        <img src="images/home_diffusers.jpg" alt="House Diffusers">
+        <h3>House Diffusers (50ml)</h3>
+        <p>Luxurious 50ml house diffusers from Perfume Co. Africa.</p>
+        <p class="price">R 350.00 ZAR</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20House%20Diffusers%20(50ml)" class="button">Order via WhatsApp</a>
+      </div>
+      <!-- Car Diffusers -->
+      <div class="card">
+        <img src="images/car_diffusers.jpg" alt="Car Diffusers">
+        <h3>Car Diffusers (50ml)</h3>
+        <p>Refreshing 50ml car diffusers from Perfume Co. Africa.</p>
+        <p class="price">R 80.00 ZAR</p>
+        <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20Car%20Diffusers%20(50ml)" class="button">Order via WhatsApp</a>
+      </div>
+    </div>
   </section>
 
   <!-- Perfume Size Guide -->
@@ -321,10 +376,9 @@
     <h2>💳 Payment Info</h2>
     <p>Use the banking details below to make payment after placing your order.</p>
     <div style="text-align: left; max-width: 500px; margin: 20px auto;">
-      <p><strong>Account Holder:</strong> Perfume Co Africa</p>
-      <p><strong>Bank Name:</strong> Nova Trust Bank</p>
-      <p><strong>Account Number:</strong> 0876543210</p>
-      <p><strong>Branch Code:</strong> 09123</p>
+      <p><strong>Account Holder:</strong> Nsila Holdings</p>
+      <p><strong>Bank Name:</strong> Capitec Business Account</p>
+      <p><strong>Account Number:</strong> 1053701136</p>
       <p><strong>Reference:</strong> Your Name + Product Name</p>
     </div>
     <a href="https://wa.me/27727597352?text=I've%20made%20payment%20for%20my%20perfume%20order.%20Here%20is%20my%20POP." class="button">Send Proof via WhatsApp</a>
@@ -334,13 +388,12 @@
   <section class="section" style="background-color: #f4f4f4;">
     <h2>🚚 Delivery Process</h2>
     <ol style="max-width: 800px; text-align: left; margin: auto;">
-      <li><strong>Step 1:</strong> Browse products and click “Order via WhatsApp”.</li>
-      <li><strong>Step 2:</strong> Ndumiso will confirm stock availability and pricing.</li>
-      <li><strong>Step 3:</strong> Make payment via EFT and send proof of payment.</li>
-      <li><strong>Step 4:</strong> Orders are shipped within 1–3 working days via trusted courier services.</li>
+      <li><strong>Step 1:</strong> Browse products and place your order (click “Order via WhatsApp”).</li>
+      <li><strong>Step 2:</strong> Make payment using above banking details.</li>
+      <li><strong>Step 3:</strong> Add R60 for PAXI courier, send nearest PAXI code (PEP).</li>
+      <li><strong>Step 4:</strong> Send proof of payment.</li>
+      <li><strong>Step 5:</strong> Order will be shipped within 1 to 3 working days</li>
     </ol>
-    <p style="margin-top: 15px;">📦 <strong>Nationwide Delivery:</strong> 2–5 working days. Shipping cost depends on location and quantity.</p>
-  </section>
 
   <!-- Contact -->
   <section class="section" id="contact">
