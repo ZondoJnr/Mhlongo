@@ -4,13 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ndumiso Mbonisi Mhlongo</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     /* Base Styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,268 +17,160 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
-
     @keyframes paperFlow {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-
-    [id]::before {
-      content: "";
-      display: block;
-      height: 100px;
-      margin-top: -100px;
-      visibility: hidden;
-    }
+    [id]::before { content:""; display:block; height:100px; margin-top:-100px; visibility:hidden; }
 
     /* Header */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
       backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.6);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
       z-index: 1000;
     }
-
     header img {
-      height: 70px;
-      width: 70px;
+      height: 60px; width: 60px;
       border-radius: 50%;
       margin-right: 10px;
     }
+    header h1 { margin:0; font-size:22px; }
 
-    header h1 {
-      margin: 0;
-      font-size: 22px;
-    }
-
+    /* Menu Toggle */
     .menu-toggle {
       display: none;
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    /* Navigation */
+    /* Navigation Desktop */
     nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
+      gap: 15px;
     }
-
     nav a {
-      padding: 5px 12px;
+      padding: 8px 14px;
       font-size: 16px;
       font-weight: bold;
       color: black;
       text-decoration: none;
       transition: color 0.3s;
     }
+    nav a:hover { color: goldenrod; }
 
-    nav a:hover {
-      color: goldenrod;
-    }
-
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      position: relative;
-      margin-top: 100px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: white;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .hero-content h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero-content p {
-      font-size: 18px;
-    }
-
-    /* General Section */
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    /* Buttons */
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .button:hover {
-      background: goldenrod;
-    }
-
-    /* Cards */
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      width: 250px;
-      padding: 15px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 5px;
-    }
-
-    /* Perfume Section */
-    .perfume-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    .perfume-section img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 10px;
-    }
-
-    .perfume-content {
-      flex: 1;
-    }
-
-    /* Contact Section */
-    #contact {
-      padding: 60px 20px 150px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 500px;
-      margin: auto;
-      margin-bottom: 40px;
-    }
-
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #111;
-      color: white;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: underline;
-    }
-
-    /* Overlay for mobile menu */
+    /* Overlay */
     .overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 998;
+      background: rgba(0,0,0,0.5);
+      z-index: 900;
     }
+    .overlay.show { display: block; }
 
-    .overlay.show {
-      display: block;
-    }
-
-    /* Mobile Nav */
+    /* Mobile Navigation */
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
+      .menu-toggle { display: block; }
       nav {
         position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100%;
-        width: 250px;
-        background: white;
+        top: 0; left: -250px;
+        width: 250px; height: 100%;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 60px 20px;
-        transition: right 0.3s ease;
-        z-index: 999;
+        background: #fff;
+        padding: 20px;
+        gap: 10px;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+        transition: left 0.3s ease;
+        z-index: 1001;
       }
-
-      nav.show {
-        right: 0;
-      }
+      nav.show { left: 0; }
+      nav a { color: #333; font-weight: 500; }
+      nav a:hover { color: #0d6efd; transform: translateX(5px); }
     }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      margin-top: 100px;
+      position: relative;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; overflow:hidden;
+    }
+    .hero video {
+      position: absolute; top:0; left:0;
+      width:100%; height:100%; object-fit:cover; z-index:0;
+    }
+    .hero::after {
+      content:""; position:absolute; inset:0;
+      background: rgba(0,0,0,0.4); z-index:1;
+    }
+    .hero-content {
+      position: relative; z-index:2; color:white; max-width:800px;
+    }
+    .hero-content h1 { font-size:36px; margin-bottom:10px; }
+    .hero-content p { font-size:18px; }
+
+    /* Section */
+    .section { padding:60px 20px; text-align:center; max-width:1000px; margin:auto; }
+
+    /* Buttons */
+    .button {
+      display:inline-block; margin-top:20px;
+      padding:10px 20px;
+      background:black; color:white;
+      border-radius:5px; text-decoration:none;
+      transition: background 0.3s;
+    }
+    .button:hover { background: goldenrod; }
+
+    /* Cards */
+    .card-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .card {
+      background:#f9f9f9; border:1px solid #ddd; border-radius:10px;
+      width:250px; padding:15px; box-shadow:0 0 8px rgba(0,0,0,0.1);
+    }
+    .card img { width:100%; border-radius:5px; }
+
+    /* Perfume */
+    .perfume-section {
+      display:flex; flex-wrap:wrap; align-items:center; gap:20px;
+      max-width:1000px; margin:auto; padding:60px 20px;
+    }
+    .perfume-section img { width:100%; max-width:400px; border-radius:10px; }
+    .perfume-content { flex:1; }
+
+    /* Contact */
+    #contact { padding:60px 20px 150px; }
+    form {
+      display:flex; flex-direction:column; gap:10px;
+      max-width:500px; margin:auto; margin-bottom:40px;
+    }
+    input, textarea {
+      padding:10px; border:1px solid #ccc; border-radius:5px; font-size:16px;
+    }
+
+    /* Footer */
+    footer {
+      text-align:center; padding:30px;
+      background:#111; color:white; font-size:14px;
+    }
+    footer a { color:white; text-decoration:underline; }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div style="display: flex; align-items: center;">
+    <div style="display:flex; align-items:center;">
       <img src="images/logo.jpg" alt="Logo">
       <h1>Mhlongo Momentum</h1>
     </div>
@@ -297,11 +185,10 @@
     <div class="overlay"></div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <video autoplay muted loop playsinline>
       <source src="images/ndumiso_banner.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
     <div class="hero-content">
       <p>Leader | Nurse | Entrepreneur | Coach | Educator | Speaker</p>
@@ -309,52 +196,44 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section class="section">
     <h2>Meet Ndumiso</h2>
-    <p>I am a passionate leader, coach, businessperson, public speaker who describes himself as a teacher at heart. With over 15 years of experience in the nursing profession, I’ve worked across clinical care, academia, and nursing management — and I've expanded my expertise into leadership development and entrepreneurship.
-I hold a Diploma in General Nursing, a BCur in Nursing Education and Administration, a Master’s in Nursing Sciences, and a Postgraduate Diploma in Management (Business). My leadership journey began early in life and has been shaped by active roles in schools, churches, communities, and professional settings.
-What I’ve discovered over my years of service is that: leadership and business principles are universal — whether you're leading a team, managing a business, teaching in a classroom, or serving your community. My mission is to help others lead with confidence, serve with purpose, and build lives and careers of lasting impact.
-This website is more than a personal profile — it's a hub for leadership growth, personal development, and professional empowerment.
-Let’s connect. Whether you’re a nurse, a manager, a businessperson, or someone passionate about personal growth — explore my work, engage with my content, and take the next step in your leadership journey.
-</p>
+    <p>I am a passionate leader, coach, businessperson, public speaker who describes himself as a teacher at heart. With over 15 years of experience in the nursing profession, I’ve worked across clinical care, academia, and nursing management — and I've expanded my expertise into leadership development and entrepreneurship. I hold a Diploma in General Nursing, a BCur in Nursing Education and Administration, a Master’s in Nursing Sciences, and a Postgraduate Diploma in Management (Business). My leadership journey began early in life and has been shaped by active roles in schools, churches, communities, and professional settings. What I’ve discovered over my years of service is that: leadership and business principles are universal — whether you're leading a team, managing a business, teaching in a classroom, or serving your community. My mission is to help others lead with confidence, serve with purpose, and build lives and careers of lasting impact. This website is more than a personal profile — it's a hub for leadership growth, personal development, and professional empowerment. Let’s connect. Whether you’re a nurse, a manager, a businessperson, or someone passionate about personal growth — explore my work, engage with my content, and take the next step in your leadership journey.</p>
     <a href="about.html" class="button">See more about me</a>
   </section>
 
-  <!-- Books Section -->
+  <!-- Books -->
   <section class="section">
     <h2>Books by Ndumiso</h2>
-    <p>Ndumiso Mbonisi Mhlongo is a powerful author who writes for leaders, pastors, and anyone passionate about personal growth...</p>
     <div class="card-container">
       <div class="card">
         <img src="images/book3.jpg" alt="Book 1">
         <h3>From One Manager to Another</h3>
-        <p>Navigating the daily struggles in Nursing Management: A Practical guide.</p>
+        <p>Navigating the daily struggles in Nursing Management.</p>
         <a href="shop.html" class="button">Order Book</a>
       </div>
-      <div class="card-container">
       <div class="card">
         <img src="images/coming soon.jpg" alt="Coming Soon">
         <h3>Effective Duty Delegation</h3>
         <p>Assessing team strengths and weaknesses as an operational manager.</p>
-        <a href="https://wa.me/27727597352?text=Hi%2C%20please%20notify%20me%20when%20the%20book%20'Leading%20with%20Faith'%20is%20available." class="button">Notify Me</a>
+        <a href="https://wa.me/27727597352" class="button">Notify Me</a>
       </div>
-    </div>
     </div>
     <a href="books.html" class="button">See All Books</a>
   </section>
 
-  <!-- Perfume Section -->
+  <!-- Perfume -->
   <section class="perfume-section">
     <img src="images/perfume co.jpg" alt="Perfume">
     <div class="perfume-content">
       <h2>The Perfume Co Africa</h2>
-      <p>Ndumiso is part of The Perfume Co Africa – offering elegant, long-lasting scents for both men and women...</p>
+      <p>Ndumiso is part of The Perfume Co Africa – offering elegant scents...</p>
       <a href="perfumes.html" class="button">Go to Cosmetic Shop</a>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section class="section" id="contact">
     <h2>Contact</h2>
     <form action="https://wa.me/your-number" method="get" target="_blank">
@@ -373,16 +252,18 @@ Let’s connect. Whether you’re a nurse, a manager, a businessperson, or someo
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    const nav = document.querySelector("nav");
+    const overlay = document.querySelector(".overlay");
+    const toggle = document.querySelector(".menu-toggle");
 
-    function toggleMenu() {
-      const nav = document.querySelector("nav");
-      const overlay = document.querySelector(".overlay");
+    toggle.addEventListener("click", () => {
       nav.classList.toggle("show");
       overlay.classList.toggle("show");
-    }
-
-    document.querySelector(".menu-toggle").addEventListener("click", toggleMenu);
-    document.querySelector(".overlay").addEventListener("click", toggleMenu);
+    });
+    overlay.addEventListener("click", () => {
+      nav.classList.remove("show");
+      overlay.classList.remove("show");
+    });
   </script>
 </body>
 </html>
