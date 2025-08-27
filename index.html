@@ -33,7 +33,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      backdrop-filter: blur(12px);
       background: rgba(255,255,255,0.7);
       border-bottom: 1px solid rgba(0,0,0,0.1);
       z-index: 1000;
@@ -78,25 +77,31 @@
     }
     .overlay.show { display: block; }
 
-    /* Mobile Navigation */
     @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-      nav {
-        position: fixed;
-        top: 0; left: -250px;
-        width: 250px; height: 100%;
-        flex-direction: column;
-        background: #fff;
-        padding: 20px;
-        gap: 10px;
-        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
-        transition: left 0.3s ease;
-        z-index: 1001;
-      }
-      nav.show { left: 0; }
-      nav a { color: #333; font-weight: 500; }
-      nav a:hover { color: #0d6efd; transform: translateX(5px); }
-    }
+  .menu-toggle { display: block; }
+  nav {
+    position: fixed;
+    top: 0; left: -250px;
+    width: 250px; height: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    transition: left 0.3s ease;
+    z-index: 1001;
+  }
+  nav.show { left: 0; }
+  nav a { 
+    color: black;       /* change this from #333 to black */
+    font-weight: 500; 
+  }
+  nav a:hover { 
+    color: #0d6efd; 
+    transform: translateX(5px); 
+  }
+}
+
 
     /* Hero */
     .hero {
@@ -165,105 +170,118 @@
       background:#111; color:white; font-size:14px;
     }
     footer a { color:white; text-decoration:underline; }
+
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <div style="display:flex; align-items:center;">
-      <img src="images/logo.jpg" alt="Logo">
-      <h1>Mhlongo Momentum</h1>
+  <div style="display: flex; align-items: center;">
+    <img src="images/logo.jpg" alt="Logo">
+    <h1>Mhlongo Momentum</h1>
+  </div>
+  <div class="menu-toggle">MENU</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="shop.html">Bookshop</a>
+    <a href="perfumes.html">Cosmetic Shop</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="overlay"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="images/ndumiso_banner.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <p>Leader | Nurse | Entrepreneur | Coach | Educator | Speaker</p>
+    <a href="about.html" class="button">Read More</a>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section">
+  <h2>Meet Ndumiso</h2>
+  <p>I am a passionate leader, coach, businessperson, public speaker who describes himself as a teacher at heart. With over 15 years of experience in the nursing profession, I’ve worked across clinical care, academia, and nursing management — and I've expanded my expertise into leadership development and entrepreneurship. I hold a Diploma in General Nursing, a BCur in Nursing Education and Administration, a Master’s in Nursing Sciences, and a Postgraduate Diploma in Management (Business). My leadership journey began early in life and has been shaped by active roles in schools, churches, communities, and professional settings. What I’ve discovered over my years of service is that: leadership and business principles are universal — whether you're leading a team, managing a business, teaching in a classroom, or serving your community. My mission is to help others lead with confidence, serve with purpose, and build lives and careers of lasting impact. This website is more than a personal profile — it's a hub for leadership growth, personal development, and professional empowerment. Let’s connect. Whether you’re a nurse, a manager, a businessperson, or someone passionate about personal growth — explore my work, engage with my content, and take the next step in your leadership journey.</p>
+  <a href="about.html" class="button">See more about me</a>
+</section>
+
+<!-- Books -->
+<section class="section">
+  <h2>Books by Ndumiso</h2>
+  <div class="card-container">
+    <div class="card">
+      <img src="images/book3.jpg" alt="Book 1">
+      <h3>From One Manager to Another</h3>
+      <p>Navigating the daily struggles in Nursing Management.</p>
+      <a href="shop.html" class="button">Order Book</a>
     </div>
-    <div class="menu-toggle">MENU</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="shop.html">Bookshop</a>
-      <a href="perfumes.html">Cosmetic Shop</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="overlay"></div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="images/ndumiso_banner.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <p>Leader | Nurse | Entrepreneur | Coach | Educator | Speaker</p>
-      <a href="about.html" class="button">Read More</a>
+    <div class="card">
+      <img src="images/coming soon.jpg" alt="Coming Soon">
+      <h3>Effective Duty Delegation</h3>
+      <p>Assessing team strengths and weaknesses as an operational manager.</p>
+      <a href="https://wa.me/27727597352" class="button">Notify Me</a>
     </div>
-  </section>
+  </div>
+  <a href="books.html" class="button">See All Books</a>
+</section>
 
-  <!-- About -->
-  <section class="section">
-    <h2>Meet Ndumiso</h2>
-    <p>I am a passionate leader, coach, businessperson, public speaker who describes himself as a teacher at heart. With over 15 years of experience in the nursing profession, I’ve worked across clinical care, academia, and nursing management — and I've expanded my expertise into leadership development and entrepreneurship. I hold a Diploma in General Nursing, a BCur in Nursing Education and Administration, a Master’s in Nursing Sciences, and a Postgraduate Diploma in Management (Business). My leadership journey began early in life and has been shaped by active roles in schools, churches, communities, and professional settings. What I’ve discovered over my years of service is that: leadership and business principles are universal — whether you're leading a team, managing a business, teaching in a classroom, or serving your community. My mission is to help others lead with confidence, serve with purpose, and build lives and careers of lasting impact. This website is more than a personal profile — it's a hub for leadership growth, personal development, and professional empowerment. Let’s connect. Whether you’re a nurse, a manager, a businessperson, or someone passionate about personal growth — explore my work, engage with my content, and take the next step in your leadership journey.</p>
-    <a href="about.html" class="button">See more about me</a>
-  </section>
+<!-- Perfume -->
+<section class="perfume-section">
+  <img src="images/perfume co.jpg" alt="Perfume">
+  <div class="perfume-content">
+    <h2>The Perfume Co Africa</h2>
+    <p>Ndumiso is part of The Perfume Co Africa – offering elegant scents...</p>
+    <a href="perfumes.html" class="button">Go to Cosmetic Shop</a>
+  </div>
+</section>
 
-  <!-- Books -->
-  <section class="section">
-    <h2>Books by Ndumiso</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="images/book3.jpg" alt="Book 1">
-        <h3>From One Manager to Another</h3>
-        <p>Navigating the daily struggles in Nursing Management.</p>
-        <a href="shop.html" class="button">Order Book</a>
-      </div>
-      <div class="card">
-        <img src="images/coming soon.jpg" alt="Coming Soon">
-        <h3>Effective Duty Delegation</h3>
-        <p>Assessing team strengths and weaknesses as an operational manager.</p>
-        <a href="https://wa.me/27727597352" class="button">Notify Me</a>
-      </div>
-    </div>
-    <a href="books.html" class="button">See All Books</a>
-  </section>
+<!-- Contact -->
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <form action="https://wa.me/your-number" method="get" target="_blank">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="text" name="subject" placeholder="Subject" required />
+    <textarea name="message" rows="5" placeholder="Message" required></textarea>
+    <button type="submit" class="button">Send</button>
+  </form>
+</section>
 
-  <!-- Perfume -->
-  <section class="perfume-section">
-    <img src="images/perfume co.jpg" alt="Perfume">
-    <div class="perfume-content">
-      <h2>The Perfume Co Africa</h2>
-      <p>Ndumiso is part of The Perfume Co Africa – offering elegant scents...</p>
-      <a href="perfumes.html" class="button">Go to Cosmetic Shop</a>
-    </div>
-  </section>
+<!-- Footer -->
+<footer>
+  &copy; <span id="year"></span> Website by 
+  <a href="https://www.calebzondo.site" target="_blank">Ruach Tech</a>
+</footer>
 
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <form action="https://wa.me/your-number" method="get" target="_blank">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="text" name="subject" placeholder="Subject" required />
-      <textarea name="message" rows="5" placeholder="Message" required></textarea>
-      <button type="submit" class="button">Send</button>
-    </form>
-  </section>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
 
-  <!-- Footer -->
-  <footer>
-    &copy; <span id="year"></span> Website by 
-    <a href="https://www.calebzondo.site" target="_blank">Ruach Tech</a>
-  </footer>
+const nav = document.querySelector("nav");
+const overlay = document.querySelector(".overlay");
+const toggle = document.querySelector(".menu-toggle");
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const nav = document.querySelector("nav");
-    const overlay = document.querySelector(".overlay");
-    const toggle = document.querySelector(".menu-toggle");
+// Open mobile menu
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("show");
+  overlay.classList.toggle("show");
+});
 
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("show");
-      overlay.classList.toggle("show");
-    });
-    overlay.addEventListener("click", () => {
-      nav.classList.remove("show");
-      overlay.classList.remove("show");
-    });
-  </script>
+// Close mobile menu when overlay is clicked
+overlay.addEventListener("click", () => {
+  nav.classList.remove("show");
+  overlay.classList.remove("show");
+});
+
+// Close menu if any nav link is clicked (optional)
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("show");
+    overlay.classList.remove("show");
+  });
+});
+</script>
 </body>
 </html>
