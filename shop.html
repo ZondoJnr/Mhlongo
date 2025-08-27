@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bookshop</title>
-  <link rel="stylesheet" href="style.css" />
-   <style>
+  <title>Ndumiso Mbonisi Mhlongo</title>
+  <style>
     /* Base Styles */
     *, *::before, *::after { box-sizing: border-box; }
     body {
@@ -34,7 +33,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      backdrop-filter: blur(12px);
       background: rgba(255,255,255,0.7);
       border-bottom: 1px solid rgba(0,0,0,0.1);
       z-index: 1000;
@@ -79,25 +77,31 @@
     }
     .overlay.show { display: block; }
 
-    /* Mobile Navigation */
     @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-      nav {
-        position: fixed;
-        top: 0; left: -250px;
-        width: 250px; height: 100%;
-        flex-direction: column;
-        background: #fff;
-        padding: 20px;
-        gap: 10px;
-        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
-        transition: left 0.3s ease;
-        z-index: 1001;
-      }
-      nav.show { left: 0; }
-      nav a { color: #333; font-weight: 500; }
-      nav a:hover { color: #0d6efd; transform: translateX(5px); }
-    }
+  .menu-toggle { display: block; }
+  nav {
+    position: fixed;
+    top: 0; left: -250px;
+    width: 250px; height: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    transition: left 0.3s ease;
+    z-index: 1001;
+  }
+  nav.show { left: 0; }
+  nav a { 
+    color: black;       /* change this from #333 to black */
+    font-weight: 500; 
+  }
+  nav a:hover { 
+    color: #0d6efd; 
+    transform: translateX(5px); 
+  }
+}
+
 
     /* Hero */
     .hero {
@@ -166,6 +170,7 @@
       background:#111; color:white; font-size:14px;
     }
     footer a { color:white; text-decoration:underline; }
+
   </style>
 </head>
 <body>
@@ -173,8 +178,8 @@
   <!-- Header -->
   <header>
     <div style="display: flex; align-items: center;">
-      <img src="images/logo.jpg" alt="Logo">
-      <h1>Mhlongo Momentum</h1>
+      <img src="images/logo1.jpg" alt="Logo">
+      <h1>Ndumiso Mhlongo</h1>
     </div>
     <div class="menu-toggle">MENU</div>
     <nav>
@@ -204,7 +209,8 @@
       <div class="card">
         <img src="images/book3.jpg" alt="Book">
         <h3>From One Manager to Another</h3>
-        <p>Includes real-life examples and tools for better leadership in healthcare.</p>
+        <p>Your step-by-step guide to thriving in nursing management.
+Practical, supportive, and solution-focused—From One Manager to Another helps nurse managers tackle daily challenges, strengthen their teams, and lead with confidence.</p>
         <a href="https://wa.me/27727597352?text=Hi%2C%20I%20would%20like%20to%20order%20the%20physical%20book%20'From%20One%20Manager%20to%20Another'." class="button">Order via WhatsApp</a>
       </div>
   </section>

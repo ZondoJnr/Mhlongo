@@ -4,184 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ndumiso Mbonisi Mhlongo</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     /* Base Styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
+      background: linear-gradient(135deg, #ffffff, #f8f8f8, #ffffff);
+      background-size: 400% 400%;
+      animation: paperFlow 15s ease infinite;
       color: black;
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
-
-    [id]::before {
-      content: "";
-      display: block;
-      height: 100px;
-      margin-top: -100px;
-      visibility: hidden;
+    @keyframes paperFlow {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
+    [id]::before { content:""; display:block; height:100px; margin-top:-100px; visibility:hidden; }
 
     /* Header */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.8);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
       z-index: 1000;
     }
-
     header img {
-      height: 70px;
-      width: 70px;
+      height: 60px; width: 60px;
       border-radius: 50%;
       margin-right: 10px;
     }
+    header h1 { margin:0; font-size:22px; }
 
-    header h1 {
-      margin: 0;
-      font-size: 22px;
-    }
-
+    /* Menu Toggle */
     .menu-toggle {
       display: none;
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    /* Navigation */
+    /* Navigation Desktop */
     nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
+      gap: 15px;
     }
-
     nav a {
-      padding: 5px 12px;
-      min-width: 80px;
+      padding: 8px 14px;
       font-size: 16px;
       font-weight: bold;
       color: black;
       text-decoration: none;
-      white-space: nowrap;
       transition: color 0.3s;
     }
+    nav a:hover { color: goldenrod; }
 
-    nav a:hover {
-      color: goldenrod;
+    /* Overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 900;
     }
+    .overlay.show { display: block; }
 
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      background: url('images/banner.jpg') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-      margin-top: 100px;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: white;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .hero-content h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero-content p {
-      font-size: 18px;
-    }
-
-    /* General Section */
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    /* Buttons */
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .button:hover {
-      background: goldenrod;
-    }
-
-    /* Contact Section */
-    #contact {
-      padding: 60px 20px 150px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 500px;
-      margin: auto;
-      margin-bottom: 40px;
-    }
-
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #111;
-      color: white;
-      font-size: 14px;
-    }
-
-    /* Social Icons */
+    @media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav {
+    position: fixed;
+    top: 0; left: -250px;
+    width: 250px; height: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    transition: left 0.3s ease;
+    z-index: 1001;
+  }
+  nav.show { left: 0; }
+  nav a { 
+    color: black;       /* change this from #333 to black */
+    font-weight: 500; 
+  }
+  nav a:hover { 
+    color: #0d6efd; 
+    transform: translateX(5px); 
+  }
+}
+/* Social Icons */
     .social-links {
       margin-top: 15px;
       display: flex;
@@ -198,54 +118,81 @@
       fill: goldenrod;
     }
 
-    /* Overlay for mobile menu */
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 998;
-      transition: opacity 0.3s ease;
+    /* Hero */
+    .hero {
+      height: 100vh;
+      margin-top: 100px;
+      position: relative;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; overflow:hidden;
+    }
+    .hero video {
+      position: absolute; top:0; left:0;
+      width:100%; height:100%; object-fit:cover; z-index:0;
+    }
+    .hero::after {
+      content:""; position:absolute; inset:0;
+      background: rgba(0,0,0,0.4); z-index:1;
+    }
+    .hero-content {
+      position: relative; z-index:2; color:white; max-width:800px;
+    }
+    .hero-content h1 { font-size:36px; margin-bottom:10px; }
+    .hero-content p { font-size:18px; }
+
+    /* Section */
+    .section { padding:60px 20px; text-align:center; max-width:1000px; margin:auto; }
+
+    /* Buttons */
+    .button {
+      display:inline-block; margin-top:20px;
+      padding:10px 20px;
+      background:black; color:white;
+      border-radius:5px; text-decoration:none;
+      transition: background 0.3s;
+    }
+    .button:hover { background: goldenrod; }
+
+    /* Cards */
+    .card-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .card {
+      background:#f9f9f9; border:1px solid #ddd; border-radius:10px;
+      width:250px; padding:15px; box-shadow:0 0 8px rgba(0,0,0,0.1);
+    }
+    .card img { width:100%; border-radius:5px; }
+
+    /* Perfume */
+    .perfume-section {
+      display:flex; flex-wrap:wrap; align-items:center; gap:20px;
+      max-width:1000px; margin:auto; padding:60px 20px;
+    }
+    .perfume-section img { width:100%; max-width:400px; border-radius:10px; }
+    .perfume-content { flex:1; }
+
+    /* Contact */
+    #contact { padding:60px 20px 150px; }
+    form {
+      display:flex; flex-direction:column; gap:10px;
+      max-width:500px; margin:auto; margin-bottom:40px;
+    }
+    input, textarea {
+      padding:10px; border:1px solid #ccc; border-radius:5px; font-size:16px;
     }
 
-    .overlay.show {
-      display: block;
+    /* Footer */
+    footer {
+      text-align:center; padding:30px;
+      background:#111; color:white; font-size:14px;
     }
+    footer a { color:white; text-decoration:underline; }
 
-    /* Mobile Nav */
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100%;
-        width: 250px;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 60px 20px;
-        transition: right 0.3s ease;
-        z-index: 999;
-      }
-
-      nav.show {
-        right: 0;
-      }
-    }
   </style>
 </head>
-<body>
+<body> 
   <header>
     <div style="display: flex; align-items: center;">
-      <img src="images/logo.jpg" alt="Logo" />
-      <h1>Mhlongo Momentum</h1>
+      <img src="images/logo1.jpg" alt="Logo" />
+      <h1>Ndumiso Mhlongo</h1>
     </div>
     <div class="menu-toggle">MENU</div>
     <nav>
@@ -281,8 +228,7 @@
 
     <div style="max-width: 500px; margin: 0 auto; text-align: left;">
       <h3>Direct Contact</h3>
-      <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/27727597352" target="_blank">+27 72 759 7352</a></p>
-      <p><strong>Email:</strong> info@mhlongomomentum.co.za</p>
+      <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/27632628652" target="_blank">063 262 8652</a> OR 072 759 7352</p>
     </div>
 
     <!-- Social Media Links -->
